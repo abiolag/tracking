@@ -10,20 +10,46 @@ use Illuminate\Support\Str;
 
 class ShipmentController extends Controller
 {
+    private function checkAdminAccess()
+    {
+        // Simple password check - change 'molpsg123' to your desired password
+        $adminPassword = session('admin_authenticated');
+        
+        if (!$adminPassword || $adminPassword !== '1jobalarav8l') {
+            // Store the intended URL so we can redirect back after login
+            session(['admin_intended_url' => url()->current()]);
+            return false;
+        }
+        
+        return true;
+    }
+
     public function index()
     {
+        if (!$this->checkAdminAccess()) {
+            return redirect()->route('admin.login');
+        }
+
         $shipments = Shipment::orderBy('created_at', 'desc')->get();
         return view('admin.shipments.index', compact('shipments'));
     }
 
     public function create()
     {
+        if (!$this->checkAdminAccess()) {
+            return redirect()->route('admin.login');
+        }
+
         return view('admin.shipments.create');
     }
 
     public function store(Request $request)
     {
-        // Validate the request
+        if (!$this->checkAdminAccess()) {
+            return redirect()->route('admin.login');
+        }
+
+        // ... rest of your existing store method ...
         $request->validate([
             'sender_name' => 'required|string|max:255',
             'sender_address' => 'required|string',
@@ -68,6 +94,10 @@ class ShipmentController extends Controller
 
     public function show($id)
     {
+        if (!$this->checkAdminAccess()) {
+            return redirect()->route('admin.login');
+        }
+
         $shipment = Shipment::findOrFail($id);
         $trackingEvents = $shipment->trackingEvents()->orderBy('event_time', 'desc')->get();
 
@@ -76,6 +106,10 @@ class ShipmentController extends Controller
 
     public function updateStatus(Request $request, $id)
     {
+        if (!$this->checkAdminAccess()) {
+            return redirect()->route('admin.login');
+        }
+
         $request->validate([
             'status' => 'required|string',
             'location' => 'required|string',

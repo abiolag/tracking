@@ -30,11 +30,11 @@
                 </nav>
 
                 <!-- Action Buttons -->
-                <div class="flex items-center space-x-4">
+            <!-- <div class="flex items-center space-x-4">
                     <a href="/admin" class="text-gray-600 hover:text-blue-600">
                         <i class="fas fa-user"></i> Admin
                     </a>
-                </div>
+                </div>  -->
             </div>
         </div>
     </header>
