@@ -35,13 +35,12 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="{{ url('/') }}" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
-                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors">Services</a>
-                    <a href="{{ url('/track') }}" class="text-gray-600 hover:text-blue-600 transition-colors">Tracking</a>
-                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
-                </nav>
+        <nav class="hidden md:flex space-x-8">
+            <a href="{{ url('/') }}" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
+            <a href="{{ route('about') }}" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+            <a href="{{ url('/track') }}" class="text-gray-600 hover:text-blue-600 transition-colors">Tracking</a>
+            <a href="{{ route('contact') }}" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
 
                 <!-- Action Buttons -->
                 <div class="flex items-center space-x-4">
@@ -315,7 +314,7 @@
             </div>
             
             <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 MOLPSG Global Courier Services. All rights reserved.</p>
+                <p>&copy; 2025 MOLPSG Global Courier Services. All rights reserved.</p>
             </div>
         </div>
     </footer>

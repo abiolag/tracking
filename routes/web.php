@@ -47,4 +47,16 @@ Route::prefix('admin')->group(function () {
     Route::post('/shipments', [ShipmentController::class, 'store'])->name('admin.shipments.store');
     Route::get('/shipments/{id}', [ShipmentController::class, 'show'])->name('admin.shipments.show');
     Route::post('/shipments/{id}/update-status', [ShipmentController::class, 'updateStatus'])->name('admin.shipments.update-status');
+
+
+    // Add these routes after your existing routes
+
+    // About Page
+    Route::get('/about', function () {
+        return view('about');
+    })->name('about');
+
+    // Contact Pages
+    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'show'])->name('contact');
+    Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 });

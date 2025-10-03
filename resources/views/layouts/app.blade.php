@@ -21,12 +21,12 @@
                 </div>
 
                 <!-- Navigation -->
+                <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="{{ url('/') }}" class="text-blue-600 font-semibold">Home</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600">Services</a>
-                    <a href="{{ url('/track') }}" class="text-gray-600 hover:text-blue-600">Tracking</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600">Locations</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600">Support</a>
+                    <a href="{{ url('/') }}" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
+                    <a href="{{ route('about') }}" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                    <a href="{{ url('/track') }}" class="text-gray-600 hover:text-blue-600 transition-colors">Tracking</a>
+                    <a href="{{ route('contact') }}" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
                 </nav>
 
                 <!-- Action Buttons -->
